@@ -3,11 +3,17 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_session import Session
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_socketio import SocketIO, emit, Namespace
+from uuid import uuid4
+import random, string
+from sqlalchemy import exists, case, distinct
+from flask_moment import Moment
 
 db = SQLAlchemy()
 login_manager = LoginManager()
 sess = Session()
+socketio = SocketIO()
+moment = Moment()
 
 
 def create_app():
@@ -15,10 +21,13 @@ def create_app():
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object("config.Config")
 
+
     # Initialize Plugins
     db.init_app(app)
     login_manager.init_app(app)
     sess.init_app(app)
+    # socketio.init_app(app)
+    # moment.init_app(app)
 
     with app.app_context():
         from . import routes

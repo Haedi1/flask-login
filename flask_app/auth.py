@@ -1,4 +1,8 @@
 """Routes for user authentication."""
+from uuid import uuid4
+import random, string
+from sqlalchemy import exists, case, distinct
+
 from flask import Blueprint
 from flask import current_app as app
 from flask import flash, redirect, render_template, request, url_for
@@ -27,6 +31,7 @@ def signup():
         existing_user = User.query.filter_by(email=form.email.data).first()
         if existing_user is None:
             user = User(
+                # name=form.name.data, email=form.email.data, website=form.website.data, websocket_id=uuid4().hex
                 name=form.name.data, email=form.email.data, website=form.website.data
             )
             user.set_password(form.password.data)

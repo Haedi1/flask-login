@@ -14,7 +14,7 @@ class Config:
     # General Config
     FLASK_APP = "wsgi.py"
     FLASK_ENV = "production"
-    SECRET_KEY = "mysecretKey"
+    SECRET_KEY = "N#OBJC#=32nocdscnc23*/3cc23as/**"
 
     # Flask-Session
     # REDIS_URI = "mysql+pymysql://localhost:3306/flask_app"

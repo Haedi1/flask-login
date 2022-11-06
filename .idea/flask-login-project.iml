@@ -9,6 +9,8 @@
     <orderEntry type="library" name="sus7rlu" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="all" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="fomantic-ui" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="templateFileTypes">
@@ -22,7 +24,7 @@
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/flask-app/templates" />
+        <option value="$MODULE_DIR$/flask_app/templates" />
       </list>
     </option>
   </component>

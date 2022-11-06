@@ -18,6 +18,7 @@ class User(UserMixin, db.Model):
     website = db.Column(db.String(60), index=False, unique=False, nullable=True)
     created_on = db.Column(db.DateTime, index=False, unique=False, nullable=True)
     last_login = db.Column(db.DateTime, index=False, unique=False, nullable=True)
+    # websocket_id = db.Column(db.String, unique=True, index=True)
 
     def set_password(self, password):
         """Create hashed password."""
@@ -29,3 +30,18 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return "<User {}>".format(self.name)
+
+
+class Message(db.Model):
+    __tablename__ = 'messages'
+    id = db.Column(db.Integer(), primary_key=True)
+    url = db.Column(db.String())
+    sender_id = db.Column(db.String())
+    recipient_id = db.Column(db.String())
+    subject = db.Column(db.String())
+    body = db.Column(db.String())
+    timestamp = db.Column(db.DateTime)
+    read = db.Column(db.Boolean(), default=False)
+    thread_id = db.Column(db.String())
+    sender_del = db.Column(db.Boolean())
+    recipient_del = db.Column(db.Boolean())
