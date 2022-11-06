@@ -29,6 +29,14 @@ def create_app():
     # socketio.init_app(app)
     # moment.init_app(app)
 
+    app.config.update(
+        SESSION_COOKIE_SECURE=True,
+        SESSION_COOKIE_HTTPONLY=True,
+        SESSION_COOKIE_SAMESITE='Lax',
+    )
+
+    # response.set_cookie('username', 'flask', secure=True, httponly=True, samesite='Lax')
+
     with app.app_context():
         from . import routes
         from . import auth
